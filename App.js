@@ -1,20 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from "react";
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import Products from "./src/components/Products"
+import Checkout from "./src/components/Checkout"
+import Profile from "./src/components/Profile"
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [isCompany, setIsCompany] = useState(false)
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+      screenOptions={{
+        headerShown: false
+      }}>
+        <Stack.Screen 
+          name="Products"
+          options={{ title: 'Produkter' }}
+        >
+          {(props) => <Products {...props} isCompany={isCompany} />}
+        </Stack.Screen>
+        <Stack.Screen 
+          name="Checkout"
+          options={{ title: 'Kurv' }}
+        >
+          {(props) => <Checkout {...props} isCompany={isCompany} />}
+        </Stack.Screen>
+        <Stack.Screen 
+          name="Profile"
+          options={{ title: 'Profil' }}
+        >
+          {(props) => <Profile {...props} setIsCompany={setIsCompany} isCompany={isCompany} />}
+        </Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
+
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
