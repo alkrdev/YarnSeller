@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, Platform, Dimensions, TouchableOpacity, TouchableHighlight, Image } from "react-native"
+import { Text, View, StyleSheet, Platform, Dimensions, TouchableOpacity, TouchableHighlight, Image, Alert } from "react-native"
 import Constants from "expo-constants"
 
 import back from "./../images/back.png"
@@ -38,7 +38,7 @@ const Checkout = (props) => {
                 </View>
             </View>
             
-            <TouchableHighlight style={styles.proceed} onPress={(e) => {}}>
+            <TouchableHighlight style={styles.proceed} onPress={(e) => {Alert.alert("VARER KØBT")}}>
                 <Text style={{ fontSize: 31, color: "white" }}>GÅ TIL BETALING</Text>
             </TouchableHighlight>
         </View>
