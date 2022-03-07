@@ -73,7 +73,7 @@ const Products = (props) => {
               currentAmount: 0,
               price: props.isCompany ? "11.60" : "14.50"
             } 
-          ])
+        ])
     }, [props.isCompany])
 
     return (
@@ -85,12 +85,10 @@ const Products = (props) => {
                         {products.map((product, index) => {
                             return (
                                 <View key={index} style={styles.itemContainer}>
-                                    <TouchableHighlight onPress={(e) => {}}>
-                                        <Image
-                                        style={styles.image}
-                                        source={yarn}
-                                        />
-                                    </TouchableHighlight>
+                                    <Image
+                                      style={styles.image}
+                                      source={yarn}
+                                    />
                                     <View style={styles.itemDescription}>
                                         {/* ITEM TITLE */}
                                         <View style={styles.itemTitle}>
