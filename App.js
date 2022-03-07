@@ -3,9 +3,10 @@ import { useState } from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Products from "./src/components/Products"
-import Checkout from "./src/components/Checkout"
-import Profile from "./src/components/Profile"
+import Products from "./src/components/Products.jsx"
+import Checkout from "./src/components/Checkout.jsx"
+import Profile from "./src/components/Profile.jsx"
+import Navigation from "./src/components/Navigation.jsx"
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,12 @@ export default function App() {
           options={{ title: 'Profil' }}
         >
           {(props) => <Profile {...props} setIsCompany={setIsCompany} isCompany={isCompany} />}
+        </Stack.Screen>
+        <Stack.Screen 
+          name="Navigation"
+          options={{ title: 'Navigation' }}
+        >
+          {(props) => <Navigation {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
