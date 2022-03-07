@@ -50,7 +50,7 @@ const Checkout = (props) => {
                 </Picker>
 
                 <View style={styles.vat}>
-                    <Text>Firma</Text>
+                    <Text>Moms</Text>
                                 
                     <Switch
                         trackColor={{ false: "#FF4A4A", true: "#3B8905" }}
